@@ -92,11 +92,11 @@ These four rules replaced belief with measurement. Full method and numbers in `r
 
 ### 4a. One-shot first, chain for control (ruled 2026-07-19)
 
-Try one-shot first: the sharpest possible reference, one jump, three variations. With a sharp reference, one jump beats chaining decisively (100% best-of-3 versus 25% in the drainpipe eval), because every extra chain step re-renders the product and accumulates identity drift.
+Try one-shot first: the sharpest possible reference, one jump, three variations. With a sharp reference, one jump beat chaining in that test (100% best-of-3 versus 25% in the drainpipe eval), because every extra chain step re-renders the product and accumulates identity drift. Those numbers describe one narrow scenario: a single product, a sharp reference, a single placement.
 
 **Chain when you need control**, not by default. Chaining earns its place for: asks a single edit genuinely cannot do (an angle that must be created first, a multi-product composition); building an ingredient separately (a consistent model via Comp Card, a missing angle via Pose-Match); or when one-shot fails. When the same model must stay consistent across a series of shots, chain from a consistent model source. The one-shot default is scoped to single-shot transformations with a sharp reference.
 
-The deeper lesson from that eval: the input, not the method, is usually the bottleneck. The same task went from 0% strict fidelity with a blurry reference to 75% with a sharp one, just by sharpening the reference. Fix the reference before you blame the technique. The verdict as ruled: chaining is useful when you need more control, for instance consistent models, which need chaining to build the model separately. It also depends on the product. One shot is always worth a try, but consider chaining if it fails. Each generation of models shrinks the domain where chaining is required, because the single jump keeps getting stronger.
+The deeper lesson from that eval: the input, not the method, is usually the bottleneck. The same task went from 0% strict fidelity with a blurry reference to 75% with a sharp one, just by sharpening the reference. Fix the reference before you blame the technique. The verdict as ruled: chaining is useful when you need more control, for instance consistent models, which need chaining to build the model separately. It also depends on the product. One shot is always worth a try, but consider chaining if it fails. One-shot and the Sequential Pipeline are peer techniques with different jobs, not a default and a fading exception: measure the delta and match the technique to it and to the control the job needs.
 
 ### 4b. Dimension: weird / normal / unsure
 

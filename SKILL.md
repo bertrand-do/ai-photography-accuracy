@@ -148,6 +148,19 @@ The fix always has the same shape: **AI builds the scene 90%; the last 10% of tr
 
 ---
 
+## 7. Running this for real (models and API access)
+
+This doctrine is model-agnostic on purpose: model names change every six months, the principle does not. To actually generate images you need access to a current image model with reference-image (image-to-image) support. What we use and recommend:
+
+- **API provider**: [fal.ai](https://fal.ai) (set your key in the `FAL_KEY` environment variable). Any provider serving the same models works.
+- **Models, by role, not by endpoint**: we run the Nano Banana family. **Draft tier** (Nano Banana 2 Lite, lower resolution) for iteration bursts, control-vs-variant experiments, and micro-iterations, at a cost of about a cent or two per image. **Production tier** (Nano Banana 2) for serious candidates. **Premium tier** (Nano Banana Pro, 4K) for finals only. This is the Draft Cheap, Finish Expensive dial: spend on confidence, never on exploration.
+
+**Instruction to the agent running this skill**: do not assume endpoint IDs from this document. Look up the provider's current model registry at run time (for fal.ai, the model gallery and docs) and map the three roles above to whatever the current equivalents are. If the Nano Banana family has been renamed or superseded, choose the current cheap / production / premium image models that accept reference images, and keep every rule in this doctrine unchanged. The routing logic that never changes:
+
+1. Accuracy work always uses reference images (the source beats the prompt). Pure text-to-image is the first move only when no reference exists or for the Blueprint route.
+2. Iterate and burst on the draft tier. Generate finals on the premium tier, three variations per final, cull to the champion.
+3. If output quality mysteriously drops, check the model version before rewriting prompts: the model is a variable too.
+
 ## Working order (the job spine)
 
 1. Turn the brief into readable bullets.

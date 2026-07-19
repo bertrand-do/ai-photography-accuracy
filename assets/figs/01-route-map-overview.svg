@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560">
+<style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style>
+<rect x="0" y="0" width="560" height="210" fill="#FBFAF7" rx="12"/>
+<text x="280" y="22" text-anchor="middle" class="lblup lblacc">THE PERFECT IMAGE</text>
+<path class="thin" d="M262,36 q4,-6 0,-12 q-4,-6 0,-11" fill="none"/>
+<path class="thin" d="M280,38 q4,-6 0,-12 q-4,-6 0,-11" fill="none"/>
+<path class="thin" d="M298,36 q4,-6 0,-12 q-4,-6 0,-11" fill="none"/>
+<path class="ink whitefill" d="M228,64 A52,38 0 0 1 332,64 Z"/>
+<circle class="ink whitefill" cx="280" cy="27" r="0.1"/>
+<ellipse class="ink whitefill" cx="280" cy="68" rx="66" ry="10"/>
+<line class="thin" x1="196" y1="80" x2="364" y2="80"/>
+<path class="acc" d="M85,148 Q161.5,118 238,84" fill="none"/><path class="acc" d="M232,93 L238,84 L245,92" fill="none"/>
+<path class="acc" d="M225,148 Q243.5,118 262,88" fill="none"/><path class="acc" d="M256,97 L262,88 L269,96" fill="none"/>
+<path class="acc" d="M365,148 Q331.5,118 298,88" fill="none"/><path class="acc" d="M292,97 L298,88 L305,96" fill="none"/>
+<path class="acc" d="M505,148 Q413.5,118 322,84" fill="none"/><path class="acc" d="M316,93 L322,84 L329,92" fill="none"/>
+<rect class="ink whitefill" x="35" y="148" width="100" height="30" rx="8"/>
+<text x="85" y="167" text-anchor="middle" class="lbl lblink">GRILL</text>
+<rect class="ink whitefill" x="175" y="148" width="100" height="30" rx="8"/>
+<text x="225" y="167" text-anchor="middle" class="lbl lblink">ROAST</text>
+<rect class="ink whitefill" x="315" y="148" width="100" height="30" rx="8"/>
+<text x="365" y="167" text-anchor="middle" class="lbl lblink">PAN-FRY</text>
+<rect class="ink whitefill" x="455" y="148" width="100" height="30" rx="8"/>
+<text x="505" y="167" text-anchor="middle" class="lbl lblink">STEAM</text>
+<text x="280" y="200" text-anchor="middle" class="lblup">MANY WAYS TO COOK THE SAME DISH · EACH ONE IS A TECHNIQUE</text>
+</svg>

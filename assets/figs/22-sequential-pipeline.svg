@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="120" fill="#FBFAF7" rx="12"/>
+      <g class="ink"><rect x="30" y="34" width="88" height="40" rx="8" class="whitefill"/></g>
+      <text x="42" y="58" class="lblup">ingredients</text>
+      <path d="M122 54 L142 54" class="thin"/>
+      <rect x="146" y="34" width="88" height="40" rx="8" class="ink whitefill"/>
+      <text x="158" y="58" class="lblup">composite</text>
+      <circle cx="260" cy="54" r="14" class="acc whitefill"/><path d="M253 54 l5 6 l10 -12" class="acc"/>
+      <path d="M238 54 L244 54 M276 54 L284 54" class="thin"/>
+      <rect x="288" y="34" width="70" height="40" rx="8" class="ink whitefill"/>
+      <text x="303" y="58" class="lblup">scene</text>
+      <path d="M362 54 L382 54" class="thin"/>
+      <rect x="386" y="34" width="66" height="40" rx="8" class="ink whitefill"/>
+      <text x="399" y="58" class="lblup">style</text>
+      <circle cx="478" cy="54" r="14" class="acc whitefill"/><path d="M471 54 l5 6 l10 -12" class="acc"/>
+      <text x="500" y="59" class="lblup lblgood">ship</text>
+      <text x="216" y="100" class="lblup lblacc">✓ = STOP and check before moving on</text>
+    </svg>

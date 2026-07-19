@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="150" fill="#FBFAF7" rx="12"/>
+      <!-- ruler crossed -->
+      <rect x="40" y="40" width="150" height="30" rx="4" class="ink whitefill"/>
+      <g class="thin"><line x1="60" y1="40" x2="60" y2="52"/><line x1="80" y1="40" x2="80" y2="58"/><line x1="100" y1="40" x2="100" y2="52"/><line x1="120" y1="40" x2="120" y2="58"/><line x1="140" y1="40" x2="140" y2="52"/><line x1="160" y1="40" x2="160" y2="58"/></g>
+      <text x="88" y="92" class="lbl lblink">"5 cm"</text>
+      <path d="M36 32 L196 78 M196 32 L36 78" class="bad"/>
+      <text x="40" y="122" class="lblup lblbad">means nothing to it</text>
+      <!-- plate anchor -->
+      <ellipse cx="330" cy="70" rx="46" ry="14" class="ink"/>
+      <ellipse cx="330" cy="70" rx="30" ry="8" class="thin"/>
+      <text x="298" y="104" class="lblup">a 20cm plate</text>
+      <path d="M386 60 Q410 40 434 56" class="accthin dash"/>
+      <ellipse cx="470" cy="62" rx="34" ry="12" class="acc"/>
+      <line x1="470" y1="50" x2="470" y2="30" class="acc"/>
+      <text x="428" y="96" class="lblup lblacc">"same size as</text>
+      <text x="428" y="110" class="lblup lblacc">the plate"</text>
+      
+    </svg>

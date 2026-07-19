@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="150" fill="#FBFAF7" rx="12"/>
+      <!-- words path -->
+      <rect x="30" y="30" width="120" height="66" rx="6" class="ink whitefill"/>
+      <line x1="44" y1="48" x2="136" y2="48" class="thin"/><line x1="44" y1="60" x2="128" y2="60" class="thin"/><line x1="44" y1="72" x2="134" y2="72" class="thin"/><line x1="44" y1="84" x2="110" y2="84" class="thin"/>
+      <text x="30" y="118" class="lblup">describe it in words</text>
+      <path d="M162 62 L226 62" class="acc"/><path d="M218 56 L228 62 L218 68" class="acc"/>
+      <rect x="238" y="24" width="86" height="78" rx="6" class="acc"/>
+      <path d="M252 88 L270 62 L284 76 L298 50 L312 78" class="accthin"/>
+      <circle cx="262" cy="42" r="7" class="accthin"/>
+      <path d="M244 116 l7 8 l13 -15" class="acc"/>
+      <text x="272" y="126" class="lblup lblgood">most control</text>
+      <!-- photo path -->
+      <rect x="380" y="30" width="70" height="66" rx="6" class="thin"/>
+      <path d="M388 84 L404 62 L416 74 L428 54 L442 82" class="thin"/>
+      <circle cx="400" cy="46" r="5" class="thin"/>
+      <text x="380" y="118" class="lblup">attach a photo</text>
+      <text x="470" y="60" class="hand">works, but you</text>
+      <text x="470" y="78" class="hand">can't edit pixels</text>
+    </svg>

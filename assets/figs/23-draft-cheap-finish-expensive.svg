@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="160" fill="#FBFAF7" rx="12"/>
+      <!-- dial 1 -->
+      <path d="M90 100 A50 50 0 1 1 190 100" class="ink"/>
+      <line x1="140" y1="100" x2="106" y2="72" class="acc"/>
+      <circle cx="140" cy="100" r="5" class="accfill"/>
+      <text x="66" y="52" class="lblup lblacc">1 image</text>
+      <text x="176" y="52" class="lblup">3–4 images</text>
+      <text x="84" y="128" class="lblup">dial 1 · variations</text>
+      <!-- dial 2 -->
+      <path d="M330 100 A50 50 0 1 1 430 100" class="ink"/>
+      <line x1="380" y1="100" x2="414" y2="72" class="acc"/>
+      <circle cx="380" cy="100" r="5" class="accfill"/>
+      <text x="296" y="52" class="lblup">cheap draft</text>
+      <text x="418" y="52" class="lblup lblacc">best model</text>
+      <text x="322" y="128" class="lblup">dial 2 · model tier</text>
+      <text x="180" y="152" class="lblup lblink">both dials rise together, with your confidence</text>
+    </svg>

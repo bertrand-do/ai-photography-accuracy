@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="150" fill="#FBFAF7" rx="12"/>
+      <text x="36" y="38" class="lbl lblbad">"5 cm" ✗</text>
+      <text x="36" y="66" class="lbl lblink">"small" → still too big</text>
+      <text x="36" y="90" class="lbl lblink">"very small" → still too big</text>
+      <text x="36" y="116" class="lbl lblacc">"extremely small" → ✓ lands at ~5 cm</text>
+      <path d="M290 30 L290 120" class="thin dash"/>
+      <!-- face landmark -->
+      <circle cx="390" cy="66" r="34" class="ink"/>
+      <path d="M372 56 Q378 52 384 56 M396 56 Q402 52 408 56" class="ink"/>
+      <line x1="362" y1="64" x2="418" y2="64" class="acc"/>
+      <g class="thin"><circle cx="378" cy="72" r="9"/><circle cx="402" cy="72" r="9"/><line x1="387" y1="72" x2="393" y2="72"/></g>
+      <text x="440" y="58" class="lblup lblacc">"below the</text>
+      <text x="440" y="72" class="lblup lblacc">eyebrows" —</text>
+      <text x="440" y="86" class="lblup">anchor to a</text>
+      <text x="440" y="100" class="lblup">landmark</text>
+      <text x="368" y="128" class="lblup">the body is a ruler it knows</text>
+    </svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="160" fill="#FBFAF7" rx="12"/>
+      <text x="40" y="30" class="lblup">beginner</text>
+      <rect x="40" y="40" width="400" height="22" rx="4" class="paperfill"/>
+      <rect x="40" y="40" width="40" height="22" rx="4" class="accfill"/>
+      <text x="452" y="56" class="lbl">100 → 10 kept</text>
+      <text x="40" y="98" class="lblup">experienced + prepared</text>
+      <rect x="40" y="108" width="80" height="22" rx="4" class="paperfill"/>
+      <rect x="40" y="108" width="40" height="22" rx="4" class="accfill"/>
+      <text x="130" y="124" class="lbl">20–30 made → 10 kept</text>
+      <text x="330" y="124" class="hand">preparation moves you here</text>
+      <path d="M326 118 Q265 104 212 107" class="accthin dash"/><path d="M224 101 L210 108 L222 115" class="accthin"/>
+    </svg>

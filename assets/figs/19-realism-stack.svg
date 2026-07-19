@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 130" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="130" fill="#FBFAF7" rx="12"/>
+      <rect x="36" y="20" width="110" height="86" rx="6" class="ink whitefill"/>
+      <ellipse cx="91" cy="62" rx="28" ry="18" class="thin"/>
+      <text x="36" y="124" class="lblup lblbad">too clean = looks fake</text>
+      <path d="M160 62 L204 62" class="acc"/><path d="M197 56 L206 62 L197 68" class="acc"/>
+      <g>
+        <rect x="220" y="20" width="150" height="24" rx="12" class="acc"/><text x="234" y="36" class="lblup lblacc">film grain ✓</text>
+        <rect x="220" y="52" width="150" height="24" rx="12" class="acc"/><text x="234" y="68" class="lblup lblacc">soft lens edges ✓</text>
+        <rect x="220" y="84" width="150" height="24" rx="12" class="thin"/><text x="234" y="100" class="lblup">tool marks · patina…</text>
+      </g>
+      <text x="396" y="46" class="hand">add back the physics</text>
+      <text x="396" y="64" class="hand">the AI leaves out —</text>
+      <text x="396" y="82" class="hand">one flag at a time (R2)</text>
+    </svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 140" width="560"><style>.fig svg{ max-width:100%; height:auto; display:block; margin:0 auto; }
+.figcap{ font:500 10.5px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8B867B; padding:6px 0 4px; }
+svg .lbl{ font:500 11px "IBM Plex Mono",Menlo,monospace; letter-spacing:.06em; fill:#6B6459; }
+svg .lblup{ font:500 10px "IBM Plex Mono",Menlo,monospace; letter-spacing:.1em; fill:#6B6459; text-transform:uppercase; }
+svg .lblink{ fill:#1A1A1A; }
+svg .lblacc{ fill:#7C3AED; }
+svg .lblbad{ fill:#9F2D20; }
+svg .lblgood{ fill:#2F6B3F; }
+svg .hand{ font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:14px; fill:#1A1A1A; }
+svg .ink{ stroke:#1A1A1A; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+svg .thin{ stroke:#1A1A1A; fill:none; stroke-width:1.2; stroke-linecap:round; }
+svg .acc{ stroke:#8B5CF6; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+svg .accthin{ stroke:#8B5CF6; fill:none; stroke-width:1.5; stroke-linecap:round; }
+svg .bad{ stroke:#9F2D20; fill:none; stroke-width:2.5; stroke-linecap:round; }
+svg .dash{ stroke-dasharray:5 5; }
+svg .dots{ stroke-dasharray:1.5 5; }
+svg .paperfill{ fill:#EDEBE6; }
+svg .accfill{ fill:#8B5CF6; }
+svg .whitefill{ fill:#fff; }
+.tao .stanza .acc{ color:#8B5CF6; }</style><rect x="0" y="0" width="560" height="140" fill="#FBFAF7" rx="12"/>
+      <!-- step 1: glasses front -->
+      <rect x="26" y="30" width="86" height="70" rx="6" class="ink whitefill"/>
+      <g class="thin"><circle cx="52" cy="64" r="12"/><circle cx="86" cy="64" r="12"/><line x1="64" y1="64" x2="74" y2="64"/></g>
+      <text x="26" y="118" class="lblup">flat, front view</text>
+      <path d="M120 65 L152 65" class="acc"/><path d="M145 60 L154 65 L145 70" class="acc"/>
+      <!-- step 2: 3/4 -->
+      <rect x="162" y="30" width="86" height="70" rx="6" class="ink whitefill"/>
+      <g class="thin"><ellipse cx="192" cy="64" rx="9" ry="12"/><ellipse cx="220" cy="64" rx="12" ry="12"/><line x1="201" y1="64" x2="208" y2="64"/></g>
+      <text x="162" y="118" class="lblup">turned ¾</text>
+      <path d="M256 65 L288 65" class="acc"/><path d="M281 60 L290 65 L281 70" class="acc"/>
+      <!-- step 3: face -->
+      <rect x="298" y="30" width="86" height="70" rx="6" class="ink whitefill"/>
+      <circle cx="341" cy="60" r="17" class="thin"/>
+      <g class="thin"><ellipse cx="334" cy="58" rx="6" ry="7"/><ellipse cx="350" cy="58" rx="7" ry="7"/></g>
+      <path d="M330 82 Q341 90 352 82" class="thin"/>
+      <text x="298" y="118" class="lblup">now on a person</text>
+      <path d="M392 65 L424 65" class="acc"/><path d="M417 60 L426 65 L417 70" class="acc"/>
+      <!-- step 4: scene -->
+      <rect x="434" y="30" width="86" height="70" rx="6" class="acc whitefill"/>
+      <circle cx="470" cy="58" r="12" class="thin"/>
+      <circle cx="500" cy="44" r="8" class="thin"/>
+      <path d="M440 92 L456 74 L470 88 L488 66 L512 92" class="thin"/>
+      <text x="434" y="118" class="lblup lblacc">now in the scene</text>
+    </svg>

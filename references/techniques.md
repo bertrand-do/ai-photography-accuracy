@@ -75,7 +75,7 @@ Organizing principle: there are many ways to cook the same dish. Several techniq
 
 **When:** a job needs control over its parts (person plus product plus scene at once, eyewear, jewelry, transparent materials). Chain for control, not by default.
 **Core moves:** Complex images are not one problem, they are several sequential problems, and each step must produce a validated intermediate asset before the next begins. The five course steps: select your clean ingredients; composite model plus product (clean portrait plus clean packshot only, validate accuracy here); place the composite into the scene; apply style and action; run the quality check. The gate discipline: stop at each step and confirm the product, fit, and face are right, because a mistake carried forward poisons everything after it. Separate the stages across sessions so context does not bleed between them. Skip the composite step for simple products; do it religiously for eyewear and small branded details.
-**Full treatment:** https://dezygn.com/resources/one-shot-vs-chaining
+**Full treatment:** https://dezygn.com/resources/sequential-pipeline
 
 ### Shannon Descent
 <img src="../assets/figs/12-shannon-descent.svg" width="560" alt="Shannon Descent diagram: shrinking a failing image down to its smallest broken piece">
@@ -144,7 +144,7 @@ Organizing principle: there are many ways to cook the same dish. Several techniq
 
 **When:** you are still choosing direction, or scaling variation count to task difficulty.
 **Core moves:** Two dials on one axis, how sure you are of the direction. Dial one, variation count: while exploring, one image at a time (extra copies of an unproven idea are waste); once the direction is locked, run variations of the winning prompt and pick the best of the litter. Plan 3 to 6 variations for easy tasks, up to 10 for borderline or hard ones. Past 10 on the same prompt, the prompt is the problem, not the dice, so switch technique. Dial two, model tier: draft on a cheap fast model while deciding what to make, then switch to the premium model for the final render. Never one-shot at full price; never ship at draft quality. Best-of-3 culling is a legitimate quality lever, far cheaper than adding pipeline steps.
-**Full treatment:** https://dezygn.com/resources/one-shot-vs-chaining
+**Full treatment:** https://dezygn.com/resources/control-vs-variant
 
 ---
 

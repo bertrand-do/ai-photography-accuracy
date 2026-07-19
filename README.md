@@ -1,10 +1,10 @@
 # AI Product Photography Accuracy
 
 <p align="center">
-  <img src="assets/hero.png" alt="AI product photography accuracy: diagnosis-first Route Map for accurate AI images" width="100%">
+  <img src="assets/hero.png" alt="Nano Banana product accuracy: the diagnosis-first system for accurate AI product images" width="100%">
 </p>
 
-<p align="center"><em>The only published, blind-judge-measured system for accurate AI product images.</em></p>
+<p align="center"><strong>Nano Banana makes your product beautiful, then quietly gets the bottle, the label, or the fabric wrong.</strong><br><em>This is the blind-judge-measured system that fixes it, on the Nano Banana family and any image model after it.</em></p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"></a>
@@ -13,18 +13,20 @@
   <a href="https://github.com/youzignb/ai-photography-accuracy/stargazers"><img src="https://img.shields.io/github/stars/youzignb/ai-photography-accuracy?style=social" alt="GitHub stars"></a>
 </p>
 
-⭐ If this repo helps you make accurate AI images, [star it](https://github.com/youzignb/ai-photography-accuracy).
+⭐ If this gets Nano Banana to respect your product, [star the repo](https://github.com/youzignb/ai-photography-accuracy) so the next owner drowning in "close enough" can find it.
 
-Most guidance on AI image generation stops at prompt-phrase tricks. This repository is the diagnosis-first alternative for AI product photography: a taxonomy of techniques, a decision rule for picking the right one, and controlled evals that replaced belief with numbers. The goal is Conversion Integrity, an AI product image a customer would accept as the real product: Accuracy plus Realism plus Branding.
+> **Came from the video?** Start with [SKILL.md](SKILL.md), the compact doctrine. Add it to Claude or ChatGPT as a skill and your agent runs the whole method for you. Every deep dive linked below stays free.
+
+You spin up a product shot and it looks incredible. Then you look closer. The bottle is the wrong shape. The label reads like gibberish. The linen shines like plastic. So you rewrite the prompt and spin again, and again, hunting for the one that finally looks like YOUR product. That is not a workflow. That is a slot machine. And "close enough" is not a style choice. Close enough is a two-star review, "item not as pictured," and a refund. This repository is the fix, and it does not stop at prompt-phrase tricks. You name the exact defect, route it to the technique built for it, and lean on evals run on Nano Banana and judged blind instead of hope. It is free, and it comes from a working practice that ships these images for money. The goal is Conversion Integrity, an AI product image a customer would accept as the real product: Accuracy plus Realism plus Branding.
 
 ## Highlights
 
-- **Measured, not guessed.** Every rule below is backed by a controlled eval with a blind judge, not a hunch about what "usually works."
-- **Diagnosis-first Route Map.** One decision rule, run on 8 fidelity axes, dispatches every job to the right technique instead of trial and error.
-- **A coined vocabulary.** Named, reusable concepts (Visual Syntax, Lock-and-Outpaint, Shannon Descent, Blueprinting) for problems that used to have no name.
-- **Free canonical deep dives.** Every technique links to its full treatment at dezygn.com/resources, at no cost.
-- **Drop-in as a Claude skill.** `SKILL.md` carries the operating doctrine an agent can follow directly for AI product photography tasks.
-- **Built from a working practice.** Distilled from a real product-photography operation and the Dezygn platform, not written in the abstract.
+- **Stop guessing which prompt worked.** Every rule here is backed by a controlled eval run on the Nano Banana family with a blind judge, so you copy what was measured, not what someone hopes usually works.
+- **Know the fix before you burn 10 generations.** The diagnosis-first Route Map names the defect on 8 fidelity axes and dispatches it straight to the right technique, instead of rewriting the whole prompt and rolling again.
+- **Get language for the problems that used to have no name.** Named, reusable concepts (Visual Syntax, Lock-and-Outpaint, Shannon Descent, Blueprinting) turn "it just looks off" into a defect you can point at and clear.
+- **Go as deep as you want, at no cost.** Every technique links to its full canonical treatment at dezygn.com/resources, free.
+- **Hand it to your AI and let it do the work.** `SKILL.md` drops into Claude or ChatGPT as a skill your agent follows directly on any product-accuracy task.
+- **Learn the method that people actually pay for.** This is distilled from a real product-photography operation and the Dezygn platform, not theory written in the abstract, so store owners sell more and freelancers can charge for the skill.
 
 ## Table of contents
 
@@ -112,4 +114,4 @@ Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICE
 
 ---
 
-⭐ If this repo helps you make accurate AI images, [star it](https://github.com/youzignb/ai-photography-accuracy): it helps others find a measured way to do AI product photography.
+⭐ Made an image a customer would accept as the real thing? [Star it](https://github.com/youzignb/ai-photography-accuracy) so more people find a measured way to do this.

@@ -10,10 +10,10 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"></a>
   <img src="https://img.shields.io/badge/Evals-276%20images%20%C2%B7%20blind--judged-blue.svg" alt="Evals: 276 images, blind-judged">
   <img src="https://img.shields.io/badge/Techniques-21-orange.svg" alt="Techniques: 21">
-  <a href="https://github.com/youzignb/ai-photography-accuracy/stargazers"><img src="https://img.shields.io/github/stars/youzignb/ai-photography-accuracy?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/bertrand-do/ai-photography-accuracy/stargazers"><img src="https://img.shields.io/github/stars/bertrand-do/ai-photography-accuracy?style=social" alt="GitHub stars"></a>
 </p>
 
-⭐ If this gets Nano Banana to respect your product, [star the repo](https://github.com/youzignb/ai-photography-accuracy) so the next owner drowning in "close enough" can find it.
+⭐ If this gets Nano Banana to respect your product, [star the repo](https://github.com/bertrand-do/ai-photography-accuracy) so the next owner drowning in "close enough" can find it.
 
 > **Came from the video?** Start with [SKILL.md](SKILL.md), the compact doctrine. Add it to Claude or ChatGPT as a skill and your agent runs the whole method for you. Every deep dive linked below stays free.
 
@@ -114,4 +114,4 @@ Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICE
 
 ---
 
-⭐ Made an image a customer would accept as the real thing? [Star it](https://github.com/youzignb/ai-photography-accuracy) so more people find a measured way to do this.
+⭐ Made an image a customer would accept as the real thing? [Star it](https://github.com/bertrand-do/ai-photography-accuracy) so more people find a measured way to do this.

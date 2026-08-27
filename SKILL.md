@@ -1,173 +1,135 @@
 ---
-name: ai-product-photography
-description: Make AI-generated product images physically truthful to the real product. Use for any AI product photography, product-accuracy, or e-commerce image generation task where the output must match the actual item's shape, size, material, text, and details.
+name: ai-photography
+description: Produce accurate AI product photography — e-commerce images, ads, and campaign visuals where the product must match reality (proportions, materials, text, construction). Use for Nano Banana / Gemini image work, prompt engineering for product accuracy, fixing "AI slop" or "item not as pictured" defects, and any request involving product photo generation, product accuracy, or realistic AI photography.
 ---
 
-# AI Product Photography
+# AI Product Photography — the accuracy doctrine
 
-A compact operating doctrine for generating product images that a customer would accept as the real thing. The goal is **Conversion Integrity**: Accuracy (physical truth of the product) plus Realism (passes the sniff test) plus Branding (speaks the brand's visual language). Miss one and the image hurts the brand. This doctrine is diagnosis-first: name what is wrong, pick one technique, commit. When a technique keeps failing, switch methods rather than forcing the same one harder.
+Based on the AI product photography accuracy doctrine by Bertrand / dezygn.com. Full depth in `references/techniques.md` (technique library), `references/cheatsheets.md` (style/camera/lighting/model/category/brand libraries), and `references/evals.md` (measured findings — the honest numbers behind the rules).
 
-This is the public, blind-judge-measured version of the system. Where a claim was measured, the numbers are in `references/evals.md`; where a technique needs its full treatment, the link is in `references/techniques.md`.
+## Why this exists
 
----
+Typing a vague prompt and hitting regenerate is a slot machine, not a craft. It produces AI slop — plastic skin, wrong product shape, video-game lighting — the reason returns spike ("item not as pictured"). The alternative is **assembly, not description**: decompose the image into controllable parts, prepare clean inputs, pick the right technique for the specific defect, verify against the real product, and only ship what passes. This skill is that method, condensed to operate by.
 
-## 1. The foundations (the laws)
+The organizing idea: **there are many ways to cook the same dish.** Several techniques reach the same result. Diagnosis is choosing which one. When one way keeps failing, switch methods — don't force the same one harder. The kitchen frame: prep your ingredients → pick the method → taste as you go → finish by hand if needed → bank the winning method as a recipe.
 
-These describe how current image models behave. Every technique below is an application of one or more of them.
+## 1 · The 8 foundations — how the models actually behave
 
-- **Small Steps Law.** Never ask the model to make a big jump in one step. A "jump" is the distance between what your inputs already show and what you are asking for. Big jumps fail in random ways. Every technique turns one big jump into small checked steps.
-- **Words are the strongest input.** Text-to-image is the highest-fidelity path when the thing is describable. The photo is a crutch for what you cannot describe: it helps, but it takes word-level control away. Before attaching a reference, ask "could I just describe this?"
-- **Say it or show it, never both.** Words for what you want to change, pictures for what you want to keep. If a reference already shows something, do not also describe it. Anywhere your words differ from the pixels, they fight, and the output loses fidelity. A real case: a 400-word enhanced prompt failed a glasses style transfer; the same user's 30-word original one-shotted it.
-- **The source beats the prompt.** Anything present in a source image will appear in the output, whether you asked for it or not. A face in the source will show up. Never use a source that contains a competing version of what you are adding.
-- **Attention: first is loudest.** Earlier tokens have more influence than later tokens. This is not a bug, it is how the models are built. Put the critical constraint in the first sentence.
-- **Dimension blindness.** The model learned from pictures, and pictures carry no measurements. It knows relative magnitude, never centimeters. Write "a 5cm border" and you may get one four times bigger.
-- **Batch economics.** One generation is rarely perfect even when the prompt is right. The discard pile is the quality filter doing its job. Preparation moves you down the curve: a beginner burns roughly 10 generations per keeper, a prepared operator 2 to 3. The client only ever sees the flawless ones.
-- **The prompt is the artifact.** The image is the echo; the prompt is the voice. A perfect prompt leaves no room for interpretation: complete, precise, absolute. Winning prompts are assets. Edit them surgically, one clause at a time, and never rewrite from scratch, because you do not know which word was doing the heavy lifting.
+1. **Small Steps Law** — never ask for one big jump. A "jump" is the delta between what your inputs already show and what you're asking for. Big jumps fail in random, hard-to-debug ways. Every technique below turns one big jump into small, checked steps.
+2. **Words are the strongest input** — text-to-image is the highest-fidelity path when the thing is describable. A reference photo is a crutch for what words can't capture; it also takes word-level control away (you can't edit pixels the way you edit a sentence). Before attaching a reference, ask: "could I just describe this?"
+3. **Say it or show it, never both** — an ingredient is defined by words, by an image, or by both — never redundantly. Don't describe what an attached image already shows: anywhere your words differ from the pixels, even slightly, the two signals fight and pull the output away from the reference. Words for what you want to CHANGE, pictures for what you want to KEEP.
+4. **The source beats the prompt** — a reference communicates *everything* it contains, including noise. A face in a background photo will appear in the output even if the prompt never mentions it. Crop every source to exactly what you want transferred; never use a source that contains a competing version of what you're adding (the Polluted Source Rule).
+5. **Attention: first = loudest** — image models pay more attention to earlier tokens. This is not a bug, it's how they're built. Default order is Style → Subject → Action → Scene → Camera → Brand; break that order when one ingredient isn't landing and move it toward the front. A detail that keeps getting lost can be repeated from three different angles (subject, scene, brand line) — the repetition trick.
+6. **Dimension blindness** — the model learned from photographs, and photographs never carried a ruler. It understands relative *magnitude*, never centimeters. Write "a 5cm border" and you might get one four times too big. Centimeters don't steer, they coast — they only look accurate when the requested size happens to match the object's typical size.
+7. **Batch economics** — the discard pile is the quality filter doing its job. A generation is rarely perfect even with the right prompt; plan for variations, not one-shots, and let the client only ever see what passed.
+8. **The prompt is the asset, not the image** — "the image is the echo; the prompt is the voice." A perfect prompt is complete, precise, and leaves no room for interpretation. When an image is wrong, the answer is in the prompt, not in painting over the picture. A prompt that wins becomes a **master**: the North Star for the whole series, edited surgically (swap only the changed clause) and never rewritten from scratch — you don't know which word was doing the heavy lifting.
 
----
+## 2 · Visual Syntax — the language of an image, 6 ingredients
 
-## 2. The Language: Visual Syntax v2.0
+Every image decomposes into six ingredients, in this canonical order (front = loudest, per foundation 5):
 
-Professional AI photography is not description, it is assembly. Description gambles (the Slot Machine Trap). Assembly engineers. What you do not choose, the model chooses for you: leave a slot empty and it invents a brand, a size, a material.
+| # | Ingredient | The question | Words or image? |
+|---|-----------|---------------|------------------|
+| 1 | **Style** | What kind of photo is this? | Either — colors everything downstream |
+| 2 | **Subject** | What/who is the hero? | Image, for the product — accuracy needs pixels |
+| 3 | **Action** | What's happening? | Either |
+| 4 | **Scene** | Where are we, how's it lit? | Either |
+| 5 | **Camera** | How is it shot? | Text — hard to show, easy to say (lens/aperture/framing) |
+| 6 | **Brand** | How does this feel like the brand? | Text — colors and vibes rarely transfer from a reference image; acts as a filter over the whole image, not a dominant force |
 
-**Rule 1 - Every image has six ingredients.** Decompose the shot, control each one.
+Three rules fall out of this: (1) every image has these six slots, decompose and control each one; (2) each slot is words, an image, or both; (3) order matters — earlier ingredients dominate.
 
-| # | Ingredient | The question it answers |
-|---|-----------|-------------------------|
-| 1 | STYLE | What kind of photo is this? |
-| 2 | SUBJECT | What or who is the hero? |
-| 3 | ACTION | What is happening? |
-| 4 | SCENE | Where are we, and how is it lit? |
-| 5 | CAMERA | How are we shooting it? |
-| 6 | BRAND | How does this feel like them? |
+**What clients actually buy: Conversion Integrity** = Accuracy (physical truth of the product) + Realism (passes the sniff test) + Branding (speaks the brand's visual language). Miss any one and the image can hurt the brand.
 
-Style goes first because it colors everything. Brand goes last because it acts as a filter, a color grade over the whole image, not a dominant force. Position is not importance: Brand sits last precisely because it works over everything else.
+**Quality gate**: score all six ingredients 1-5. Any ingredient below 4 kills the image for product-detail-page work; ads/social can accept 3.5+ on some ingredients. A gorgeous scene around a wrong product still scores low on Subject — it does not ship.
 
-**Rule 2 - Each ingredient can be words OR pictures OR both.** Use images for accuracy, text for interpretation. A quick default: Subject (the product) is an image; Camera is text (hard to show); Brand is text (colors and vibes do not transfer well from images); everything else can be either. Tag attached images as `[image1]`, `[image2]`, and reference each one at its first natural mention woven into the text, never clustered up front. State each image's single job out loud: "the sunglasses from [image1], the same pose as [image2], a place like [image3]." Never let one reference serve two jobs.
+## 3 · The technique families — WHEN to reach for each
 
-**Rule 3 - Order matters.** First ingredients are strongest. Break the default order when something will not come through: move that ingredient toward the front. Repeat a lost detail from more than one section. Do not spend early tokens on the obvious.
+Full write-ups with prompt skeletons and field-proven wins are in `references/techniques.md`. Summary, grouped by what problem they solve:
 
-**Quality gate: the 6-Ingredient Scorecard.** Score each ingredient 1 to 5. The **4-Star Rule**: any ingredient below 4 kills the image for product-page work. Ads and social may accept 3.5 on some ingredients. A gorgeous scene around a wrong product scores 2 on Subject, so it does not ship.
+**Source preparation** (fix the input before you ever touch the prompt — the cheapest, highest-leverage stage)
+- **Clean Reference** — good light, neutral background, crop to keep only what you want transferred, upscale to ≥2K, angle-match the source to the intended output. The single biggest accuracy lever measured: the same task went from 0% to 75% strict fidelity just by swapping a blurry reference for a sharp one.
+- **Angle Bank** — capture ~10 angles around a product's 360° axis once, in good light, clean background. This is the upstream unlock that makes the highest-accuracy technique (Lock-and-Outpaint, below) always available later. For shape-adaptive products (bedding, apparel) this generalizes to canonical states × angles, not just angles of a rigid object.
+- **Clean Ingredients** — one clean, isolated master per ingredient in a shot (model, product, background, prop) — composite only from masters, never from styled sources.
+- **Comp Card Technique** — for synthetic/repeat models: a styled comp card for choosing the look, a plain white-background/white-shirt clean portrait for actually compositing (the source always wins over the prompt, so anything in a styled source pollutes the output).
+- **Stand-In Technique** — when you have the physical product but no photo of the pose/state you need: photograph anyone (yourself, a friend) holding or wearing it purely as a fit/pose reference; identity comes from elsewhere.
 
----
+**Transfer** (borrow what already works instead of describing it)
+- **Product / Style / Composition / Template-one-liner Transfer** — attach a reference and say what to copy from it: its product, its look, its arrangement, or (rarest, most powerful) everything at once. "Use the same composition as [image1]" replaces trying to dictate a whole layout in words.
+- **Composition Transfer, 4-image form** — the hardest shot (a specific person wearing a specific product with true proportions) separates into four single-job images: fit reference, identity reference, setting reference, design reference. One image, one job — never let one reference carry two.
 
-## 3. The Route Map: diagnosis then technique (the heart)
+**Decomposition** (break a complex ask into small checked steps)
+- **Sequential Pipeline** — the *planned* build order for known-complex shots: select ingredients → composite subject+product → place into scene → apply style/action → quality check. Validate at each gate before moving on; a mistake carried forward poisons everything after it.
+- **Shannon Descent** — the *diagnostic* version, for when something already broke and you don't know what's wrong: strip away everything except the smallest piece that still fails, perfect it alone, then rebuild the scene around the solved anchor.
 
-There are many ways to cook the same dish. Several techniques reach the same result, and choosing one IS the diagnosis. Taste first (name what is wrong on the fidelity axes), then the table gives you the method. Do not technique-hop at random.
+**Locking** (freeze what must not drift)
+- **Lock-and-Outpaint** — keep the product's pixels frozen exactly in place and generate only the world around it. Never redrawn = never wrong = zero drift. The highest-accuracy route there is, but it demands an angle-matched source — which is exactly what an Angle Bank supplies.
+- **Blueprinting** — lock a scene in *words* instead of pixels: have the model describe the image so completely the description alone could recreate it, delete only the sentences describing the thing you're replacing (leave every other sentence exactly as-is), then regenerate with the new element filling the hole. Also escapes a low-resolution source ceiling, since you're regenerating from a fresh description, not the old pixels.
 
-**The 8 fidelity axes** (score each match / off / not-visible):
+**Iteration** (learn something from every generation)
+- **Control vs Variant Pipeline** — lock an immutable Control Base (composition, camera, layout), then test one isolated change at a time as a variant, keep what scores better, fold winners into a new champion. This is prompt engineering as version control; it avoids the failure mode of rewriting whole prompts (semantic leaking — the layout shifts when you only meant to change a texture).
+- **Micro-Iterations** — the lightweight, in-session version: once you've found the ONE word that's failing, generate 10-15 variants of just that word/phrase ("oval" → "elongated oval" → "narrow oval"...) and expect 2-3 to land.
+- **Draft Cheap, Finish Expensive** — two dials, turned up only as confidence rises: variation count (1 image while exploring an unproven direction; 3-10 once the direction is locked and you're picking the best of a litter) and model tier (cheap/fast model for drafts, premium/high-resolution model for the final render). Never one-shot at full price; never ship at draft quality.
 
-silhouette and outline, proportions and scale, element count, text and typography, graphics and pattern, material and finish, color accuracy, construction details.
+**Wording** (speak the model's language)
+- **Material Fidelity** — translate what the client means into words the model has seen a million times: material analogies over the client's own jargon ("grooves pressed like a linocut print" beats "engraved the way we want"), forbid-by-name exclusions, real film-stock/camera names over vague adjectives ("vintage look"), and a client glossary collected before generating. See §4 for the measured prior-test rule.
+- **Dimension Control** — see §4 for the measured decision rule; the tools are a magnitude ladder, comparison anchoring to ONE clean singular landmark, shout-and-forbid (capitals + name the blocked mistake), and sketching a position words can't carry.
+- **AI Realism Techniques** — kill the plastic look with small stacked physical cues, tested one at a time: visible pores/imperfections, real camera and lens names, banned words (perfect, flawless, airbrushed, porcelain — these trigger the CGI look), volume-controlled emotion words ("quiet joy" not "happy"). Realism is a collection of small physical cues stacked together, never one heavy effect — and each cue must be verified to actually help before you keep it.
+- **Edit Grammar** — editing an existing image is a different grammar from creating one: describe the CHANGE, not the picture — a work order, not a wish. Formula: **Action + Target + Integration**. Action = the verb (remove/replace/add/overlay/extend). Target = the exact thing plus which reference image supplies it. Integration = how it blends — matched light direction, matched color, texture that bends with the surface, matched perspective. The integration line is the entire difference between an amateur and a professional edit.
 
-The axes are fixed. The per-product features you check on each axis are extracted from the reference photos. Run the axes as a checklist first, before touching a prompt: name which axis is off, and the table below tells you which technique addresses that failure. Diagnosing before acting is the whole discipline. Randomly swapping techniques and hoping is the amateur pattern; picking the technique the defect calls for is the professional one.
+**Judging** (verification is a technique family, not just a gate)
+- 6-Ingredient Scorecard (1-5 per ingredient, 4-star minimum to ship for product-detail work).
+- 8-axis fidelity check: silhouette/outline, proportions/scale, element count, text/typography, graphics/pattern, material/finish, color accuracy, construction details. Score each match / off / not-visible against the real reference.
+- Upload the generated image alongside the original product photo to a vision model and ask directly: does this match proportions and dimensions? Any accuracy issues?
+- Side-by-side diffing: compare a variant against its control, or a generated image against the real factory photo, like a code review.
+- **Scale Audit (natural rulers)** — prove the render kept the product's true SIZE: anchor-free ratio checks first (aspect, internal proportions — no assumptions needed), then find an in-frame object of known low-variance real size (iris 11.7mm on a face; a brick, door, outlet, credit card in scenes — manufactured beats biological), measure both in pixels (color-mask bbox exact, grid-overlay ±10%), compute implied product size vs ground truth. Catches the silent 20–30% regression-to-typical-size the eye forgives; the % error doubles as the correction factor for the re-lock.
 
-**Dispatch table:**
+**Manual Handoff** (know when the machine is done)
+- The sign of a true wall: two full techniques exhausted, the same defect keeps returning, and each new attempt breaks something else. The fix has one shape: AI builds 90% of the image; the last 10% of truth is applied by hand in an editor from the real photo (cloning real fabric folds, placing real illustration/lettering elements, matching color to the brand's real swatches). Always a **proposal with evidence** (attempts made, the stubborn defect, the recommended manual fix) — never a silent give-up. Write the manual recipe down: "impossible" shrinks every year.
 
-| What is happening | The move |
+## 4 · The Route Map — diagnosis → technique
+
+Taste first (name what's wrong), then pick ONE technique and commit. Never technique-hop randomly.
+
+| What's happening | The move |
 |---|---|
-| The ask is one small step from what you have | One-shot prompt (Visual Syntax); template one-liner if a reference already has the exact look |
-| You know WHICH thing is wrong | Control vs Variant Pipeline, plus Micro-Iterations once it narrows to one word |
-| Product needs an angle or pose your photo does not show | Pose-Match |
-| Details mushy, reference bad, nothing improves | Clean Reference (fix the input first), ask for a bigger output, switch models; no usable photo at all means Stand-In |
-| You do not know what is wrong, or the full scene defeats every fix | Shannon Descent |
-| The product can be fully described in words, or you are building a master | Describe first (text-to-image, Blueprinting) |
+| The ask is one small step from what you have | One-shot prompt (Visual Syntax); a template one-liner if a reference has the exact look already |
+| You know WHICH thing is wrong | Control vs Variant Pipeline (+ Micro-Iterations on the one failing word) |
+| Product needs an angle/pose your photo doesn't show | Pose-Match: transform the ingredient first, one step, check it, save the angle forever |
+| Details mushy, reference weak, nothing improves | Clean Reference first (fix the input); bigger output; switch models. No usable photo at all → Stand-In Technique |
+| You don't know what's wrong, or the whole scene defeats every fix | Shannon Descent — isolate the smallest failing piece |
+| The product can be fully described in words / building a master prompt | Describe first (text-to-image), or Blueprinting for a full scene rebuild |
 | A scene must be rebuilt around one replaced thing | Blueprinting |
 | Product-on-surface, pixel-perfect fidelity, fixed angle | Lock-and-Outpaint |
-| A perfect layout already exists, and fit plus identity plus design all matter | Composition Transfer |
-| Output keeps copying the WRONG thing from a reference | Polluted source: clean it (Clean Reference) |
-| Changing an existing image rather than creating one | Edit Grammar |
-| Person plus product plus scene all at once | Sequential Pipeline |
-| SIZE or proportions wrong | Dimension Control |
-| MATERIAL reads wrong | Material Fidelity, plus the Realism Stack if it looks fake |
-| Still testing direction, or choosing the final | Draft Cheap, Finish Expensive |
+| A perfect layout already exists; fit + identity + design all matter at once | Composition Transfer |
+| Output keeps copying the WRONG thing from a reference | Polluted source — clean it |
+| Changing an existing image, not creating one | Edit Grammar |
+| Person + product + scene all at once | Sequential Pipeline |
+| SIZE or proportions are wrong | Dimension Control |
+| Product *looks* right but you can't prove the size is | Scale Audit — anchor-free ratios first, then a natural ruler |
+| MATERIAL reads wrong | Material Fidelity (+ Realism Stack if it also looks synthetic) |
+| Still testing direction / choosing the final | Draft Cheap, Finish Expensive |
 | Two techniques exhausted, defect persists | Manual Handoff |
 
-The escalation always ends in the same place: when two full techniques are exhausted and the defect keeps returning, hand off to manual.
+## 5 · Measured rules (from controlled evals — see `references/evals.md` for the full numbers and honest caveats)
 
----
+These override intuition where they conflict with it:
 
-## 4. The measured decision rules
+- **One-jump default**: with a SHARP reference, one generation step beats a chain of transformations decisively (100% vs 25% pass rate in controlled testing) — every extra step re-renders the product and accumulates drift. Chain only for asks a single edit genuinely cannot do (an angle that must be created first). The input, not the method, is usually the real bottleneck — check reference sharpness before blaming the technique.
+- **The dimension decision rule**: for a normal-sized ask, use number + one clean singular comparison with a landmark, and *leave out* the magnitude word (it overshoots on normal sizes). For a weird/unusual size, you need the magnitude word. If unsure, stack all three (number, comparison, magnitude) — it's never catastrophic. Never trust centimeters alone. A hand or a row of objects is a bad anchor; ONE clean singular object plus a landmark phrase works.
+- **The material prior test**: before writing texture words, ask what the model *already* thinks that material looks like by default. Correct prior (the real name matches expectations) — naming it is enough, extra words add nothing. Wrong prior (the model's default clashes with reality, e.g. plain white percale defaulting to smooth) — no amount of wording crosses it; get a texture reference or plan a manual finish instead. Ambiguous prior (the material genuinely has more than one common look, e.g. leather) — this is the only case where adjectives earn their keep.
+- **Word-order / position rule**: the identical clause is roughly 2.5-3× more accurate as the FIRST sentence of a prompt than buried later — and the MIDDLE is the worst position of all (an instruction embedded inside scene description dilutes more than putting it dead last). Put the critical constraint first, then the scene.
+- **The variation ladder**: plan 3-6 variations for an easy, well-understood task; up to 10 for a borderline or fussy one. Generating 3 and keeping the best measurably raises the pass rate over generating 1. If you need more than ~10 attempts on the same prompt, the prompt — not the dice — is the problem; switch technique via the Route Map.
+- **The Angle Bank**: capturing ~10 angles of a physical product once (or, for soft goods, canonical states × angles) is the single highest-leverage move available at capture time — it is the precondition that makes Lock-and-Outpaint, the highest-accuracy technique, available for every future request forever. Two minutes of capture buys years of accuracy.
 
-These four rules replaced belief with measurement. Full method and numbers in `references/evals.md`.
+## How to use this skill in practice
 
-### 4a. One-shot first, chain for control (ruled 2026-07-19)
+1. Get the brief and the client's real product photos. If the physical product is available, ask for an Angle Bank (~10 angles, good light, clean background) before generating anything — it is the cheapest fix available and it's permanent.
+2. Prepare the source: crop to what you want to keep, upscale, angle-match to the intended composition.
+3. Try text-to-image first if the shot is fully describable (foundation 2). Otherwise assemble the six Visual Syntax ingredients, front-loading whatever is unusual or hard to land.
+4. Generate 1 image while exploring direction; once the direction is right, generate a small batch (§3 variation ladder) and keep the best.
+5. Judge against the real product: 8-axis check, 6-ingredient scorecard, 4-star minimum. If something specific is wrong, diagnose which axis it is and route to the matching technique (§4) rather than regenerating blindly.
+6. If two techniques get exhausted and the same defect returns, propose a manual finish with evidence rather than shipping a defect.
+7. Save what worked: the winning prompt is the asset. Reuse it verbatim for the next shot in the series; edit only the clause that needs to change.
 
-Try one-shot first: the sharpest possible reference, one jump, three variations. With a sharp reference, one jump beat chaining in that test (100% best-of-3 versus 25% in the drainpipe eval), because every extra chain step re-renders the product and accumulates identity drift. Those numbers describe one narrow scenario: a single product, a sharp reference, a single placement.
-
-**Chain when you need control**, not by default. Chaining earns its place for: asks a single edit genuinely cannot do (an angle that must be created first, a multi-product composition); building an ingredient separately (a consistent model via Comp Card, a missing angle via Pose-Match); or when one-shot fails. When the same model must stay consistent across a series of shots, chain from a consistent model source. The one-shot default is scoped to single-shot transformations with a sharp reference.
-
-The deeper lesson from that eval: the input, not the method, is usually the bottleneck. The same task went from 0% strict fidelity with a blurry reference to 75% with a sharp one, just by sharpening the reference. Fix the reference before you blame the technique. The verdict as ruled: chaining is useful when you need more control, for instance consistent models, which need chaining to build the model separately. It also depends on the product. One shot is always worth a try, but consider chaining if it fails. One-shot and the Sequential Pipeline are peer techniques with different jobs, not a default and a fading exception: measure the delta and match the technique to it and to the control the job needs.
-
-### 4b. Dimension: weird / normal / unsure
-
-The size levers fail in opposite places. A number plus a comparison is near-perfect at typical sizes but collapses on unusual ones. Magnitude words are the exact mirror: they rescue unusual sizes and overshoot normal ones. So:
-
-- **Weird size** (far from the object's normal size): you NEED the magnitude word.
-- **Normal size**: number plus one clean singular comparison with a landmark; leave the magnitude word out, because it overshoots.
-- **Not sure**: stack all three (number, comparison, magnitude). It is never catastrophic.
-- **Never trust centimeters alone.** Numbers do not steer, they coast: the figure only looks accurate when the requested size happened to match the object's typical size. On unusual asks the number is ignored.
-
-Anchor to ONE clean singular object plus a landmark phrase ("1.5x the cork", "rim level with the seat"). Hands, plural anchors (a row of books), and comparison without a landmark all measured poorly. Watch for prompt-text leakage: numbers and placeholders in a prompt can get painted onto the product. Keep dimensions in an instruction clause away from the product description, spell out real brand text, and when in doubt add "no text or numbers printed on the product." Put the size clause first in the prompt.
-
-### 4c. Material: three prior classes
-
-Before writing texture words, ask what the model thinks this material looks like by default. Materials fall into three classes:
-
-- **Correct prior** (the default look is right): naming the material is enough. Extra wording adds nothing.
-- **Wrong prior** (the model's default is wrong, for example white percale reads as smooth): words cannot cross it, and piling on words trended slightly worse. Change route instead: attach a texture reference (show, do not say), or plan the Manual Handoff.
-- **Ambiguous prior** (the material has more than one common look, for example leather smooth or pebbled): the only class where texture adjectives genuinely earn their keep. Use magnitude adjectives to pick the variant.
-
-### 4d. Word order
-
-The same constraint is roughly 2.5 to 3 times more accurate as the first sentence than buried later, and the middle is the worst position of all. For every recipe and master template: the critical constraint is the very first sentence, then the scene.
-
----
-
-## 5. Judging
-
-Evaluation is a technique family, not just a gate at the end.
-
-- **6-Ingredient Scorecard plus 4-Star Gate**: score Style, Subject, Action, Scene, Camera, Brand each 1 to 5; ship only at 4 or above on every one.
-- **8-axis fidelity check**: the Route Map's diagnostic rubric run as a judge, each axis scored match / off / not-visible.
-- **LLM dimension verification**: upload the generated image plus the original packshot to a vision model and ask "Does the product match the proportions and dimensions of the original? Any accuracy issues?"
-- **Side-by-side diffing**: compare variant against control like a code review; compare generated against the factory photo for client-facing proof.
-- **Three quick checks** when short on time: product accuracy, human realism, brand fit.
-
-The human eye is still the final instrument. The judge tools raise the floor, not the ceiling. Brand text is the canary: if the lettering degrades, suspect input resolution before you suspect the prompt. Two resolution rules must both hold. The source should be at least 2000px on its long edge with critical text at least 100px tall, because if it is blurry to you it will be worse in the output. And the output resolution should be at least the input resolution, because a 2K source rendered into a 1K output produces blurry garbage. Asking for a bigger output is the cheapest defect fix there is: small details that smear at low resolution often come out clean at high resolution.
-
----
-
-## 6. Manual Handoff (the terminus)
-
-Know when the machine is done. Saying "the AI cannot do this part" is a valuable output, because it saves hours. The sign of a true wall: two full techniques exhausted, the same defect keeps returning, and each new try starts breaking other parts of the image.
-
-The fix always has the same shape: **AI builds the scene 90%; the last 10% of truth is applied by hand from the real photo** (fabric folds cloned from the factory photo, a lettering series placed by hand, an illustration positioned precisely). Two rules govern it:
-
-1. It is a proposal with evidence: here are the attempts, here is the stubborn defect, here is the manual fix recommended. Never silent giving-up.
-2. Write the manual recipe down clearly enough that a future tool could follow it. "Impossible" shrinks every year.
-
----
-
-## 7. Running this for real (models and API access)
-
-This doctrine is model-agnostic on purpose: model names change every six months, the principle does not. To actually generate images you need access to a current image model with reference-image (image-to-image) support. What we use and recommend:
-
-- **API provider**: [fal.ai](https://fal.ai) (set your key in the `FAL_KEY` environment variable). Any provider serving the same models works.
-- **Models, by role, not by endpoint**: we run the Nano Banana family. **Draft tier** (Nano Banana 2 Lite, lower resolution) for iteration bursts, control-vs-variant experiments, and micro-iterations, at a cost of about a cent or two per image. **Production tier** (Nano Banana 2) for serious candidates. **Premium tier** (Nano Banana Pro, 4K) for finals only. This is the Draft Cheap, Finish Expensive dial: spend on confidence, never on exploration.
-
-**Instruction to the agent running this skill**: do not assume endpoint IDs from this document. Look up the provider's current model registry at run time (for fal.ai, the model gallery and docs) and map the three roles above to whatever the current equivalents are. If the Nano Banana family has been renamed or superseded, choose the current cheap / production / premium image models that accept reference images, and keep every rule in this doctrine unchanged. The routing logic that never changes:
-
-1. Accuracy work always uses reference images (the source beats the prompt). Pure text-to-image is the first move only when no reference exists or for the Blueprint route.
-2. Iterate and burst on the draft tier. Generate finals on the premium tier, three variations per final, cull to the champion.
-3. If output quality mysteriously drops, check the model version before rewriting prompts: the model is a variable too.
-
-## Working order (the job spine)
-
-1. Turn the brief into readable bullets.
-2. Collect and rename the client assets; prepare Clean Ingredients (one clean isolated master per ingredient).
-3. Collect and organize references; prepare Clean Reference (crop to keep, upscale to 2K, angle-match).
-4. First move when applicable: pure text-to-image. Then branch via the Route Map.
-5. Draft cheap, finish expensive: explore with one image on a cheap model, finish with three or more on the best model.
-6. Judge against the 4-Star gate before anything ships.
-
-Capture-stage leverage is the largest lever of all: when the physical product is available, shoot the Angle Bank (roughly 10 angles around the 360 axis, good light, clean background). Every future shot then has its angle-matched source waiting, which makes Lock-and-Outpaint, the highest-accuracy route, always available.
+For prompt-language detail (exact style/camera/lighting/model/category/brand phrasing) see `references/cheatsheets.md`. For the technique library at full depth with worked examples see `references/techniques.md`. For the measured numbers behind §5 see `references/evals.md`.
